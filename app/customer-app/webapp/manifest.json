@@ -1,0 +1,52 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "customer.app",
+    "type": "application",
+    "title": "Customer Master",
+    "description": "Customer Master Application"
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "libs": {
+        "sap.fe.templates": {}
+      }
+    },
+    "routing": {
+      "routes": [{
+        "name": "CustomersList",
+        "pattern": "",
+        "target": "CustomersList"
+      }],
+      "targets": {
+        "CustomersList": {
+          "type": "Component",
+          "id": "CustomersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Customers",
+              "navigation": {
+                "Customers": {
+                  "detail": {
+                    "route": "CustomersDetails"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CustomersDetails": {
+          "type": "Component",
+          "id": "CustomersDetails",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "entitySet": "Customers"
+            }
+          }
+        }
+      }
+    }
+  }
+}
